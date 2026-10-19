@@ -1,0 +1,15 @@
+# Local Desktop bridge: one loopback-only MCP listener row.
+# Install this package as a bundle through the Desktop Plugins UI; do not
+# hand-edit the reserved Desktop profile for package installation.
+- insert:
+    - id: deepseek-desktop-mcp
+      name: '@local/deepseek-desktop-mcp'
+      config:
+        workspaceId: 3261eb3a-9083-4ce6-b18f-89cb7e6d1746
+        port: 47821
+        # tokenFile and workspacesFile are optional. Defaults:
+        #   token:      $DSH_HOME/desktop-mcp/token
+        #   allowlist:  $DSH_HOME/desktop-mcp/workspaces.json
+        # The token file must be external, private, and non-empty. The workspace
+        # allowlist is non-secret and holds only exact canonical directories.
+        # Never put the token in this file or the repository.

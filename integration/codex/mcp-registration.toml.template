@@ -1,0 +1,4 @@
+[mcp_servers.deepseek_desktop]
+url = "http://127.0.0.1:47821/mcp"
+required = false
+http_headers_helper = 'powershell.exe -NoProfile -NonInteractive -ExecutionPolicy Bypass -File "{{HEADER_HELPER}}"'

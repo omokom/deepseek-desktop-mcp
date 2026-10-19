@@ -1,0 +1,41 @@
+{
+  "name": "@local/deepseek-desktop-mcp",
+  "version": "0.2.0-c.1",
+  "private": true,
+  "description": "Five-tool loopback-only MCP bridge into the open DeepSeek Harness Desktop host, with enrolled-workspace dispatch and a trusted local executor launcher.",
+  "type": "module",
+  "exports": {
+    ".": "./src/plugin.js",
+    "./client": "./src/client.js",
+    "./dispatch": "./src/dispatch.js",
+    "./testing": "./src/testing.js"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "files": [
+    "src",
+    "scripts",
+    "integration",
+    "cordis.patch.yml",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "check": "node --check src/config.js && node --check src/auth.js && node --check src/workspaces.js && node --check src/ledger.js && node --check src/task-view.js && node --check src/adapter.js && node --check src/mcp.js && node --check src/plugin.js && node --check src/client.js && node --check src/dispatch.js && node --check src/testing.js && node --check test/helpers.js && node --check test/client-exit.test.js && node --check test/c-workspace.test.js && node --check test/c-dispatch.test.js && node --check test/c-migration.test.js && node --check test/c-header-helper.test.js && node --check test/standard-mode.test.js && node --check scripts/create-token.mjs && node --check scripts/migrate-codex.mjs",
+    "test": "node --test --test-isolation=none test/unit.test.js test/http.test.js test/startup.test.js test/client-exit.test.js test/c-workspace.test.js test/c-dispatch.test.js test/c-migration.test.js test/c-header-helper.test.js test/standard-mode.test.js",
+    "client": "node src/client.js",
+    "dispatch": "node src/dispatch.js",
+    "create-token": "node scripts/create-token.mjs",
+    "migrate-codex": "node scripts/migrate-codex.mjs"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "1.32.1",
+    "zod": "4.6.7"
+  },
+  "engines": {
+    "node": ">=24"
+  }
+}

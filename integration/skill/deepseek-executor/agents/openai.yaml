@@ -1,0 +1,6 @@
+interface:
+  display_name: "DeepSeek Harness 通用任务执行"
+  short_description: "Desktop 执行通用调研、非 Unity 编码和文档；Unity 与资产任务优先 Codely"
+  default_prompt: "使用 $deepseek-executor 执行通用任务；涉及 Unity 或资产时按分工改用 codely-executor，由 Codex 设计与验收。"
+policy:
+  allow_implicit_invocation: true
